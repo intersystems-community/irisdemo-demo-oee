@@ -1,0 +1,17 @@
+version: '2.4'
+
+services:
+
+  OEE:
+    image: intersystemsdc/irisdemo-demo-oee:OEE-version-0.1.2
+    hostname: OEE
+    ports:
+    - "9001:51773" # 51773 is the superserver default port
+    - "9001:52773" # 52773 is the webserver/management portal port
+
+  DISPATCH:
+    image: intersystemsdc/irisdemo-demo-oee:DISPATCH-version-0.1.2
+    hostname: DISPATCH
+    ports:
+    - "9003:51773" # 51773 is the superserver default port
+    - "9004:52773" # 52773 is the webserver/management portal port
