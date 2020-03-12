@@ -27,6 +27,9 @@ class OPCUANodeDataSource
 
         int getNumberOfNodes();
 
+        string getNodeName(int idx);
+        UA_DataTypeKind getNodeType(int idx);
+
 };
 
 class NoTypeDefinedForNodeException : public exception 

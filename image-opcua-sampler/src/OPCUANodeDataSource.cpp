@@ -48,3 +48,21 @@ int OPCUANodeDataSource::getNumberOfNodes()
 {
     return this->numberOfNodes;
 }
+
+
+string OPCUANodeDataSource::getNodeName(int idx)
+{
+    return this->nodeNames.at(idx);
+}
+
+
+UA_DataTypeKind OPCUANodeDataSource::getNodeType(int idx)
+{
+    string s = nodeTypes.at(idx);
+
+    if      (s.compare("INT64")     == 0)   { return UA_DATATYPEKIND_INT64;     }
+    
+    else if (s.compare("DATETIME")  == 0)   { return UA_DATATYPEKIND_DATETIME;  }
+    
+    else throw NoTypeDefinedForNodeException("'" + s + "' is not a valid/supported data type.");
+}
